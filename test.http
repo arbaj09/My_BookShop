@@ -1,0 +1,43 @@
+###
+#
+# Browse Books
+#
+GET http://localhost:4004/odata/v4/catalog/Books?
+  # &$select=title,stock
+  # &$expand=currency
+  # &sap-language=de
+
+###
+#
+# Get Author wit ID 101
+#
+GET http://localhost:4004/odata/v4/catalog/Authors(101)
+
+###
+#
+# Update Author with ID 101
+#
+POST http://localhost:4004/odata/v4/catalog/Authors
+Content-Type: application/json
+
+{"ID": 101, "name": "Some Author"}
+
+
+###
+#
+# Order a Book
+#
+POST http://localhost:4004/odata/v4/catalog/Orders
+Content-Type: application/json;IEEE754Compatible=true
+
+{"book_ID": 201, "amount": 5}
+
+
+###
+#
+#  Book
+#
+POST http://localhost:4004/odata/v4/catalog/Books
+Content-Type: application/json
+
+{"ID": 201, "title": "Some Title"}
